@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SiteRouteImport } from './routes/_site'
 import { Route as SiteIndexRouteImport } from './routes/_site.index'
 import { Route as SiteProyectosRouteImport } from './routes/_site.proyectos'
+import { Route as SiteContactoRouteImport } from './routes/_site.contacto'
 
 const SiteRoute = SiteRouteImport.update({
   id: '/_site',
@@ -27,27 +28,35 @@ const SiteProyectosRoute = SiteProyectosRouteImport.update({
   path: '/proyectos',
   getParentRoute: () => SiteRoute,
 } as any)
+const SiteContactoRoute = SiteContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => SiteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof SiteIndexRoute
+  '/contacto': typeof SiteContactoRoute
   '/proyectos': typeof SiteProyectosRoute
 }
 export interface FileRoutesByTo {
+  '/contacto': typeof SiteContactoRoute
   '/proyectos': typeof SiteProyectosRoute
   '/': typeof SiteIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_site': typeof SiteRouteWithChildren
+  '/_site/contacto': typeof SiteContactoRoute
   '/_site/proyectos': typeof SiteProyectosRoute
   '/_site/': typeof SiteIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/proyectos'
+  fullPaths: '/' | '/contacto' | '/proyectos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/proyectos' | '/'
-  id: '__root__' | '/_site' | '/_site/proyectos' | '/_site/'
+  to: '/contacto' | '/proyectos' | '/'
+  id: '__root__' | '/_site' | '/_site/contacto' | '/_site/proyectos' | '/_site/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,15 +86,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteProyectosRouteImport
       parentRoute: typeof SiteRoute
     }
+    '/_site/contacto': {
+      id: '/_site/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof SiteContactoRouteImport
+      parentRoute: typeof SiteRoute
+    }
   }
 }
 
 interface SiteRouteChildren {
+  SiteContactoRoute: typeof SiteContactoRoute
   SiteProyectosRoute: typeof SiteProyectosRoute
   SiteIndexRoute: typeof SiteIndexRoute
 }
 
 const SiteRouteChildren: SiteRouteChildren = {
+  SiteContactoRoute: SiteContactoRoute,
   SiteProyectosRoute: SiteProyectosRoute,
   SiteIndexRoute: SiteIndexRoute,
 }
