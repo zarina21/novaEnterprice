@@ -1,4 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import {
+  AlignHorizontalSpaceAround,
+  Atom,
+  Bot,
+  Braces,
+  BriefcaseBusiness,
+  CodeXml,
+  Flame,
+  MonitorSmartphone,
+  Palette,
+  PanelsTopLeft,
+  Rocket,
+  Server,
+  type LucideIcon,
+} from "lucide-react";
 import logo from "@/assets/neo-logo.png";
 
 export const Route = createFileRoute("/_site/")({
@@ -14,6 +29,21 @@ export const Route = createFileRoute("/_site/")({
 });
 
 const stack = ["React", "JavaScript", "Next.js", "EmailJS"];
+
+const skills = [
+  { name: "HTML5", level: 98, icon: CodeXml },
+  { name: "CSS", level: 81, icon: Palette },
+  { name: "JavaScript", level: 91, icon: Braces },
+  { name: "React", level: 72, icon: Atom },
+  { name: "React Native", level: 54, icon: MonitorSmartphone },
+  { name: "Next.js", level: 91, icon: Rocket },
+  { name: "Bulma", level: 95, icon: PanelsTopLeft },
+  { name: "Firebase", level: 72, icon: Flame },
+  { name: "Node", level: 42, icon: Server },
+  { name: "Python", level: 60, icon: Bot },
+  { name: "SaaS", level: 70, icon: BriefcaseBusiness },
+  { name: "Expo", level: 37, icon: MonitorSmartphone },
+] satisfies Array<{ name: string; level: number; icon: LucideIcon }>;
 
 function Home() {
   return (
@@ -58,12 +88,14 @@ function Home() {
           {[
             {
               plan: "Mensual",
+              months: 1,
               price: "$250",
               period: "/mes",
               includes: ["Ventana informativa", "Ventana de contacto", "Dirección / horarios", "Testimonios"],
             },
             {
               plan: "Medio año",
+              months: 6,
               price: "$600",
               period: "/6 meses",
               popular: true,
@@ -71,19 +103,26 @@ function Home() {
             },
             {
               plan: "1 año",
+              months: 12,
               price: "$1,000",
               period: "/año",
               includes: ["Ventana informativa", "Ventana de contacto", "Dirección / horarios", "Testimonios"],
             },
-          ].map((p) => (
-            <div
-              key={p.plan}
-              className={`relative flex flex-col rounded-2xl border p-6 backdrop-blur transition-colors hover:border-primary/60 ${
-                p.popular
-                  ? "border-primary/60 bg-card/80 shadow-[var(--shadow-glow)]"
-                  : "border-border/70 bg-card/60"
-              }`}
-            >
+          ].map((p) => {
+            const currentPrice = Number(p.price.replace(/[$,]/g, ""));
+            const regularPrice = 250 * p.months;
+            const savings = regularPrice - currentPrice;
+            const discountPercent = Math.round((savings / regularPrice) * 100);
+
+            return (
+              <div
+                key={p.plan}
+                className={`relative flex flex-col rounded-2xl border p-6 backdrop-blur transition-colors hover:border-primary/60 ${
+                  p.popular
+                    ? "border-primary/60 bg-card/80 shadow-[var(--shadow-glow)]"
+                    : "border-border/70 bg-card/60"
+                }`}
+              >
               {p.popular && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-brand px-4 py-1 text-xs font-semibold text-primary-foreground">
                   Más popular
@@ -94,6 +133,14 @@ function Home() {
                 <span className="text-4xl font-bold text-gradient-brand">{p.price}</span>
                 <span className="text-sm text-muted-foreground">{p.period}</span>
               </div>
+              {discountPercent > 0 && (
+                <div className="mt-3 space-y-1 text-sm">
+                  <p className="font-medium text-emerald-400">Descuento: {discountPercent}%</p>
+                  <p className="text-xs text-muted-foreground/80">
+                    Antes ${regularPrice.toLocaleString("en-US")} - Ahorra ${savings.toLocaleString("en-US")}
+                  </p>
+                </div>
+              )}
               <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
                 {p.includes.map((item) => (
                   <li key={item} className="flex items-start gap-2">
@@ -113,6 +160,43 @@ function Home() {
                 >
                   Elegir plan
                 </Link>
+              </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl font-bold sm:text-4xl">
+            Nivel de <span className="text-gradient-brand">conocimiento</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+            Estas son algunas de las tecnolog\u00edas con las que trabajamos y el nivel de experiencia
+            que aplicamos en proyectos web y productos digitales.
+          </p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2">
+          {skills.map((skill) => (
+            <div
+              key={skill.name}
+              className="rounded-2xl border border-border/70 bg-card/60 p-5 backdrop-blur"
+            >
+              <div className="mb-3 flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-border/70 bg-card/80 text-primary shadow-[var(--shadow-glow)]">
+                    <skill.icon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <h3 className="text-base font-semibold text-foreground">{skill.name}</h3>
+                </div>
+                <span className="text-sm font-medium text-gradient-brand">{skill.level}%</span>
+              </div>
+              <div className="h-3 overflow-hidden rounded-full bg-secondary/60">
+                <div
+                  className="h-full rounded-full bg-gradient-brand shadow-[var(--shadow-glow)]"
+                  style={{ width: `${skill.level}%` }}
+                />
               </div>
             </div>
           ))}

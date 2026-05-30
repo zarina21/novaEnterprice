@@ -16,7 +16,7 @@ export function SiteNav() {
           <img src={logo} alt="NEO logo" className="h-9 w-9" />
           <div className="leading-tight">
             <div className="text-sm font-bold tracking-widest text-gradient-brand">NEO</div>
-            <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Nova Enterprice</div>
+            <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Nova Enterprice Online</div>
           </div>
         </Link>
         <ul className="hidden items-center gap-1 md:flex">
