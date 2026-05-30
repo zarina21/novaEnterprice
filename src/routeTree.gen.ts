@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SiteRouteImport } from './routes/_site'
 import { Route as SiteIndexRouteImport } from './routes/_site.index'
+import { Route as SiteTerminosRouteImport } from './routes/_site.terminos'
 import { Route as SiteProyectosRouteImport } from './routes/_site.proyectos'
 import { Route as SiteContactoRouteImport } from './routes/_site.contacto'
 
@@ -21,6 +22,11 @@ const SiteRoute = SiteRouteImport.update({
 const SiteIndexRoute = SiteIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteTerminosRoute = SiteTerminosRouteImport.update({
+  id: '/terminos',
+  path: '/terminos',
   getParentRoute: () => SiteRoute,
 } as any)
 const SiteProyectosRoute = SiteProyectosRouteImport.update({
@@ -38,10 +44,12 @@ export interface FileRoutesByFullPath {
   '/': typeof SiteIndexRoute
   '/contacto': typeof SiteContactoRoute
   '/proyectos': typeof SiteProyectosRoute
+  '/terminos': typeof SiteTerminosRoute
 }
 export interface FileRoutesByTo {
   '/contacto': typeof SiteContactoRoute
   '/proyectos': typeof SiteProyectosRoute
+  '/terminos': typeof SiteTerminosRoute
   '/': typeof SiteIndexRoute
 }
 export interface FileRoutesById {
@@ -49,14 +57,21 @@ export interface FileRoutesById {
   '/_site': typeof SiteRouteWithChildren
   '/_site/contacto': typeof SiteContactoRoute
   '/_site/proyectos': typeof SiteProyectosRoute
+  '/_site/terminos': typeof SiteTerminosRoute
   '/_site/': typeof SiteIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contacto' | '/proyectos'
+  fullPaths: '/' | '/contacto' | '/proyectos' | '/terminos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/contacto' | '/proyectos' | '/'
-  id: '__root__' | '/_site' | '/_site/contacto' | '/_site/proyectos' | '/_site/'
+  to: '/contacto' | '/proyectos' | '/terminos' | '/'
+  id:
+    | '__root__'
+    | '/_site'
+    | '/_site/contacto'
+    | '/_site/proyectos'
+    | '/_site/terminos'
+    | '/_site/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -79,6 +94,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteIndexRouteImport
       parentRoute: typeof SiteRoute
     }
+    '/_site/terminos': {
+      id: '/_site/terminos'
+      path: '/terminos'
+      fullPath: '/terminos'
+      preLoaderRoute: typeof SiteTerminosRouteImport
+      parentRoute: typeof SiteRoute
+    }
     '/_site/proyectos': {
       id: '/_site/proyectos'
       path: '/proyectos'
@@ -99,12 +121,14 @@ declare module '@tanstack/react-router' {
 interface SiteRouteChildren {
   SiteContactoRoute: typeof SiteContactoRoute
   SiteProyectosRoute: typeof SiteProyectosRoute
+  SiteTerminosRoute: typeof SiteTerminosRoute
   SiteIndexRoute: typeof SiteIndexRoute
 }
 
 const SiteRouteChildren: SiteRouteChildren = {
   SiteContactoRoute: SiteContactoRoute,
   SiteProyectosRoute: SiteProyectosRoute,
+  SiteTerminosRoute: SiteTerminosRoute,
   SiteIndexRoute: SiteIndexRoute,
 }
 
