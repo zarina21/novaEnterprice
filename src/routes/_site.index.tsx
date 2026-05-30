@@ -50,16 +50,70 @@ function Home() {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl font-bold sm:text-4xl">Planes para <span className="text-gradient-brand">páginas informativas</span></h2>
+          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">Todo lo que necesita tu negocio para estar en línea, sin complicaciones.</p>
+        </div>
         <div className="grid gap-5 md:grid-cols-3">
           {[
-            { t: "Diseño a medida", d: "Interfaces únicas alineadas con tu identidad de marca." },
-            { t: "Rendimiento real", d: "Sitios optimizados, ligeros y listos para escalar." },
-            { t: "Soporte cercano", d: "Acompañamos tu proyecto desde la idea al despliegue." },
-          ].map((f) => (
-            <div key={f.t} className="rounded-2xl border border-border/70 bg-card/60 p-6 backdrop-blur transition-colors hover:border-primary/60">
-              <div className="mb-4 h-10 w-10 rounded-xl bg-gradient-brand" />
-              <h3 className="text-lg font-semibold">{f.t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{f.d}</p>
+            {
+              plan: "Mensual",
+              price: "$250",
+              period: "/mes",
+              includes: ["Ventana informativa", "Ventana de contacto", "Dirección / horarios", "Testimonios"],
+            },
+            {
+              plan: "Medio año",
+              price: "$600",
+              period: "/6 meses",
+              popular: true,
+              includes: ["Ventana informativa", "Ventana de contacto", "Dirección / horarios", "Testimonios"],
+            },
+            {
+              plan: "1 año",
+              price: "$1,000",
+              period: "/año",
+              includes: ["Ventana informativa", "Ventana de contacto", "Dirección / horarios", "Testimonios"],
+            },
+          ].map((p) => (
+            <div
+              key={p.plan}
+              className={`relative flex flex-col rounded-2xl border p-6 backdrop-blur transition-colors hover:border-primary/60 ${
+                p.popular
+                  ? "border-primary/60 bg-card/80 shadow-[var(--shadow-glow)]"
+                  : "border-border/70 bg-card/60"
+              }`}
+            >
+              {p.popular && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-brand px-4 py-1 text-xs font-semibold text-primary-foreground">
+                  Más popular
+                </span>
+              )}
+              <h3 className="text-lg font-semibold">{p.plan}</h3>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="text-4xl font-bold text-gradient-brand">{p.price}</span>
+                <span className="text-sm text-muted-foreground">{p.period}</span>
+              </div>
+              <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+                {p.includes.map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-brand" />
+                    {item}
+                  </li>
+                ))}
+                <li className="flex items-start gap-2 pt-2 text-xs italic text-muted-foreground/70">
+                  <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" />
+                  Menú adicional desde $100 (pago único)
+                </li>
+              </ul>
+              <div className="mt-auto pt-6">
+                <Link
+                  to="/contacto"
+                  className="block w-full rounded-full bg-gradient-brand px-5 py-2.5 text-center text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.03]"
+                >
+                  Elegir plan
+                </Link>
+              </div>
             </div>
           ))}
         </div>
