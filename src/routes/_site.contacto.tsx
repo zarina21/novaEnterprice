@@ -4,10 +4,15 @@ import { useState } from "react";
 export const Route = createFileRoute("/_site/contacto")({
   head: () => ({
     meta: [
-      { title: "Contacto — NEO" },
-      { name: "description", content: "Contáctanos para iniciar tu proyecto web con Nova Enterprice Online." },
+      { title: "Contacto — NEO | Nova Enterprice Online" },
+      { name: "description", content: "Contáctanos para iniciar tu proyecto web con Nova Enterprice Online. Respondemos en menos de 24 horas." },
       { property: "og:title", content: "Contacto — NEO" },
-      { property: "og:description", content: "Contáctanos para iniciar tu proyecto web." },
+      { property: "og:description", content: "Contáctanos para iniciar tu proyecto web. Respondemos en menos de 24 horas." },
+      { property: "og:url", content: "https://novaenterprice.online/contacto" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://novaenterprice.online/contacto" },
     ],
   }),
   component: Contacto,

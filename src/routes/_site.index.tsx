@@ -20,9 +20,16 @@ export const Route = createFileRoute("/_site/")({
   head: () => ({
     meta: [
       { title: "NEO — Nova Enterprice Online | Desarrollo web" },
-      { name: "description", content: "Desarrollamos proyectos web modernos con React, Next.js y JavaScript. Sitios rápidos, elegantes y a medida." },
+      { name: "description", content: "Desarrollamos proyectos web modernos con React, Next.js y JavaScript. Sitios rápidos, elegantes y a medida desde $250/mes." },
       { property: "og:title", content: "NEO — Nova Enterprice Online" },
-      { property: "og:description", content: "Desarrollo de proyectos web con React, Next.js y JavaScript." },
+      { property: "og:description", content: "Desarrollo de proyectos web con React, Next.js y JavaScript. Planes desde $250/mes." },
+      { property: "og:url", content: "https://novaenterprice.online/" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:title", content: "NEO — Nova Enterprice Online" },
+      { name: "twitter:description", content: "Desarrollo de proyectos web con React, Next.js y JavaScript." },
+    ],
+    links: [
+      { rel: "canonical", href: "https://novaenterprice.online/" },
     ],
   }),
   component: Home,

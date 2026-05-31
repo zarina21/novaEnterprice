@@ -77,19 +77,37 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "NEO — Nova Enterprice Online | Desarrollo web a medida" },
+      {
+        name: "description",
+        content:
+          "Nova Enterprice Online (NEO) — desarrollo de proyectos web modernos con React, Next.js, JavaScript y EmailJS. Sitios rápidos, elegantes y a medida.",
+      },
+      { name: "author", content: "Nova Enterprice Online" },
+      { name: "keywords", content: "desarrollo web, React, Next.js, JavaScript, EmailJS, páginas informativas, NEO, Nova Enterprice Online" },
+      { name: "robots", content: "index, follow" },
+      { name: "theme-color", content: "#0b0b14" },
+      { property: "og:site_name", content: "Nova Enterprice Online" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:locale", content: "es_ES" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+    ],
+    scripts: [
       {
-        rel: "stylesheet",
-        href: appCss,
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Nova Enterprice Online",
+          alternateName: "NEO",
+          url: "https://novaenterprice.online",
+          email: "hola@novaenterprice.online",
+          description:
+            "Desarrolladora de proyectos web con React, Next.js, JavaScript y EmailJS.",
+        }),
       },
     ],
   }),

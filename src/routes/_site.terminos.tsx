@@ -4,9 +4,15 @@ export const Route = createFileRoute("/_site/terminos")({
   head: () => ({
     meta: [
       { title: "Términos y Condiciones — NEO" },
-      { name: "description", content: "Términos y condiciones de uso de Nova Enterprice Online (NEO)." },
+      { name: "description", content: "Términos y condiciones de uso de los servicios de Nova Enterprice Online (NEO)." },
       { property: "og:title", content: "Términos y Condiciones — NEO" },
       { property: "og:description", content: "Términos y condiciones de Nova Enterprice Online." },
+      { property: "og:url", content: "https://novaenterprice.online/terminos" },
+      { property: "og:type", content: "website" },
+      { name: "robots", content: "index, follow" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://novaenterprice.online/terminos" },
     ],
   }),
   component: Terminos,

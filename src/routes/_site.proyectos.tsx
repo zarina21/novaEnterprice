@@ -3,10 +3,15 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/_site/proyectos")({
   head: () => ({
     meta: [
-      { title: "Proyectos — NEO" },
-      { name: "description", content: "Proyectos web desarrollados por Nova Enterprice Online." },
+      { title: "Proyectos — NEO | Nova Enterprice Online" },
+      { name: "description", content: "Portafolio de proyectos web desarrollados por Nova Enterprice Online: landings, e-commerce, blogs y apps con React y Next.js." },
       { property: "og:title", content: "Proyectos — NEO" },
-      { property: "og:description", content: "Proyectos web desarrollados por Nova Enterprice Online." },
+      { property: "og:description", content: "Portafolio de proyectos web desarrollados por Nova Enterprice Online." },
+      { property: "og:url", content: "https://novaenterprice.online/proyectos" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://novaenterprice.online/proyectos" },
     ],
   }),
   component: Proyectos,
