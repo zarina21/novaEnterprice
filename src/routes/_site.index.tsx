@@ -127,43 +127,39 @@ function Home() {
               months: 1,
               price: "$250",
               period: "/mes",
+              billing: "Paga mes a mes",
               includes: [
-                "1 página informativa",
+                "Página informativa",
                 "Formulario de contacto",
                 "Dirección y horarios",
                 "Testimonios",
               ],
-              note: "Menú adicional desde $100",
             },
             {
-              plan: "Medio año",
+              plan: "Semestral",
               months: 6,
               price: "$600",
               period: "/6 meses",
+              billing: "Paga cada 6 meses",
               popular: true,
               includes: [
-                "Hasta 3 secciones",
+                "Página informativa",
                 "Formulario de contacto",
                 "Dirección y horarios",
                 "Testimonios",
-                "Menú de navegación",
-                "Galería de imágenes",
               ],
             },
             {
-              plan: "1 año",
+              plan: "Anual",
               months: 12,
               price: "$1,000",
               period: "/año",
+              billing: "Paga una vez al año",
               includes: [
-                "Hasta 5 secciones",
+                "Página informativa",
                 "Formulario de contacto",
                 "Dirección y horarios",
                 "Testimonios",
-                "Menú de navegación",
-                "Galería de imágenes",
-                "Blog integrado",
-                "SEO optimizado",
               ],
             },
           ].map((p) => {
@@ -191,6 +187,7 @@ function Home() {
                   <span className="text-4xl font-bold text-gradient-brand">{p.price}</span>
                   <span className="text-sm text-muted-foreground">{p.period}</span>
                 </div>
+                <p className="mt-1 text-xs text-muted-foreground/70">{p.billing}</p>
                 {discountPercent > 0 && (
                   <div className="mt-3 space-y-1 text-sm">
                     <p className="font-medium text-emerald-400">Descuento: {discountPercent}%</p>
@@ -207,13 +204,11 @@ function Home() {
                       {item}
                     </li>
                   ))}
-                  {p.note && (
-                    <li className="flex items-start gap-2 pt-2 text-xs italic text-muted-foreground/70">
-                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" />
-                      {p.note}
-                    </li>
-                  )}
+
                 </ul>
+                <p className="mt-4 text-xs italic text-muted-foreground/70">
+                  A partir de $100 menú digital
+                </p>
                 <div className="mt-auto pt-6">
                   <Link
                     to="/contacto"
