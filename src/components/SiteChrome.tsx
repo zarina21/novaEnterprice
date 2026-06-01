@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import logo from "@/assets/neo-logo.png";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 
@@ -18,10 +18,12 @@ export function SiteNav() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="NEO logo" className="h-9 w-9" />
+          <img src={logo} alt="NEO logo" className="h-9 w-9" loading="lazy" />
           <div className="leading-tight">
             <div className="text-sm font-bold tracking-widest text-gradient-brand">NEO</div>
-            <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Nova Enterprice Online</div>
+            <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+              Nova Enterprice Online
+            </div>
           </div>
         </Link>
 
@@ -59,13 +61,18 @@ export function SiteNav() {
               <Menu className="h-5 w-5" />
             </button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[280px] border-border/60 bg-background/95 backdrop-blur-xl">
+          <SheetContent
+            side="right"
+            className="w-[280px] border-border/60 bg-background/95 backdrop-blur-xl"
+          >
             <div className="flex flex-col gap-6 pt-8">
               <div className="flex items-center gap-3">
-                <img src={logo} alt="NEO logo" className="h-9 w-9" />
+                <img src={logo} alt="NEO logo" className="h-9 w-9" loading="lazy" />
                 <div className="leading-tight">
                   <div className="text-sm font-bold tracking-widest text-gradient-brand">NEO</div>
-                  <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Nova Enterprice Online</div>
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                    Nova Enterprice Online
+                  </div>
                 </div>
               </div>
               <ul className="flex flex-col gap-2">
@@ -108,12 +115,16 @@ export function SiteFooter() {
     <footer className="border-t border-border/60 mt-24">
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-10 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
-          <img src={logo} alt="" className="h-6 w-6" />
+          <img src={logo} alt="" className="h-6 w-6" loading="lazy" />
           <span>© {new Date().getFullYear()} Nova Enterprice Online</span>
         </div>
         <div className="flex gap-6">
-          <Link to="/terminos" className="hover:text-foreground">Términos y condiciones</Link>
-          <a href="https://novaenterprice.online" className="hover:text-foreground">novaenterprice.online</a>
+          <Link to="/terminos" className="hover:text-foreground">
+            Términos y condiciones
+          </Link>
+          <a href="https://novaenterprice.online" className="hover:text-foreground">
+            novaenterprice.online
+          </a>
         </div>
       </div>
     </footer>

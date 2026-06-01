@@ -40,7 +40,7 @@
   --popover: oklch(0.21 0.04 290);
   --popover-foreground: oklch(0.97 0.01 290);
   /* Violet primary */
-  --primary: oklch(0.68 0.20 300);
+  --primary: oklch(0.68 0.2 300);
   --primary-foreground: oklch(0.15 0.03 290);
   /* Pink-magenta secondary */
   --secondary: oklch(0.72 0.18 330);
@@ -51,23 +51,29 @@
   --accent-foreground: oklch(0.15 0.03 290);
   --destructive: oklch(0.62 0.24 27);
   --destructive-foreground: oklch(0.98 0.01 0);
-  --border: oklch(0.30 0.05 295 / 60%);
-  --input: oklch(0.30 0.05 295 / 60%);
-  --ring: oklch(0.68 0.20 300);
+  --border: oklch(0.3 0.05 295 / 60%);
+  --input: oklch(0.3 0.05 295 / 60%);
+  --ring: oklch(0.68 0.2 300);
 
-  --gradient-brand: linear-gradient(135deg, oklch(0.68 0.20 300), oklch(0.72 0.18 330));
+  --gradient-brand: linear-gradient(135deg, oklch(0.68 0.2 300), oklch(0.72 0.18 330));
   --gradient-hero: radial-gradient(ellipse at top, oklch(0.32 0.12 300 / 0.55), transparent 60%);
-  --shadow-glow: 0 20px 60px -20px oklch(0.68 0.20 300 / 0.55);
+  --shadow-glow: 0 20px 60px -20px oklch(0.68 0.2 300 / 0.55);
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
+  * {
+    border-color: var(--color-border);
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: ui-sans-serif, system-ui, sans-serif;
   }
-  h1, h2, h3 { letter-spacing: -0.02em; }
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.02em;
+  }
 }
 
 @utility text-gradient-brand {
