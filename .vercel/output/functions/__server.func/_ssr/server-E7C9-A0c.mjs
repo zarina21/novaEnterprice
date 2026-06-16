@@ -81,7 +81,7 @@ function getResponse() {
 }
 var HEADERS = { TSS_SHELL: "X-TSS_SHELL" };
 async function getStartManifest(matchedRoutes) {
-  const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-BoIVy-O5.mjs");
+  const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-C472pnOf.mjs");
   const startManifest = tsrStartManifest();
   let routes = startManifest.routes;
   routes[rootRouteId];
@@ -103,7 +103,7 @@ async function getStartManifest(matchedRoutes) {
 const manifest = {
   "f89a2e5e681e9af767c0434e24c12a718b0b01fca0227036608f98c4b9390f88": {
     functionName: "submitContact_createServerFn_handler",
-    importer: () => import("./contact.functions-Kg4aVq61.mjs")
+    importer: () => import("./contact.functions-HtAwelil.mjs")
   }
 };
 async function getServerFnById(id, access) {
@@ -1343,8 +1343,8 @@ var getBaseManifest = getProdBaseManifest;
 var createEarlyHintsForRequest = createEarlyHintsCollector;
 async function loadEntries() {
   const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-    import("./router-BeJusAVx.mjs"),
-    import("./start-Cspcqto1.mjs"),
+    import("./router-BNOB3xjK.mjs").then((n) => n.r),
+    import("./start-Cn9Gd-md.mjs"),
     import("./empty-plugin-adapters-BFgPZ6_d.mjs")
   ]);
   return {

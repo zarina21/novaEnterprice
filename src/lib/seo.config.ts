@@ -15,4 +15,6 @@ export function getDefaultDescription(): string {
   return "Desarrollamos proyectos web modernos con React, Next.js y JavaScript. Sitios rápidos, elegantes y a medida.";
 }
 
-export const EMAIL_ADDRESS = "hola@novaenterprice.online";
+export const EMAIL_ADDRESS = "contact@novaenterprice.online";
+
+export const GITHUB_URL = "https://github.com/zarina21";

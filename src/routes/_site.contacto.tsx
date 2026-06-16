@@ -5,7 +5,8 @@ import { z } from "zod";
 import { submitContact } from "@/lib/api/contact.functions";
 import { useState } from "react";
 import { Toaster, toast } from "sonner";
-import { getBaseUrl } from "@/lib/seo.config";
+import { Github } from "lucide-react";
+import { getBaseUrl, GITHUB_URL, EMAIL_ADDRESS } from "@/lib/seo.config";
 
 const baseUrl = getBaseUrl();
 
@@ -78,10 +79,22 @@ function Contacto() {
         </p>
         <ul className="mt-8 space-y-3 text-sm">
           <li>
-            <span className="text-muted-foreground">Email:</span> hola@novaenterprice.online
+            <span className="text-muted-foreground">Email:</span> {EMAIL_ADDRESS}
           </li>
           <li>
             <span className="text-muted-foreground">Web:</span> novaenterprice.online
+          </li>
+          <li>
+            <span className="text-muted-foreground">GitHub:</span>{" "}
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-foreground hover:text-primary transition-colors"
+            >
+              <Github className="h-4 w-4" aria-hidden="true" />
+              zarina21
+            </a>
           </li>
         </ul>
       </div>

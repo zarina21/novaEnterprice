@@ -73,7 +73,7 @@ const sections = [
   },
   {
     t: "8. Contacto",
-    d: "Para cualquier consulta sobre estos términos, escríbenos a hola@novaenterprice.online.",
+    d: "Para cualquier consulta sobre estos términos, escríbenos a contact@novaenterprice.online.",
   },
 ];
 

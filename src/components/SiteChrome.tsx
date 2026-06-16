@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu } from "lucide-react";
+import { Menu, Github } from "lucide-react";
 import logo from "@/assets/neo-logo.png";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 
@@ -118,12 +118,21 @@ export function SiteFooter() {
           <img src={logo} alt="" className="h-6 w-6" loading="lazy" />
           <span>© {new Date().getFullYear()} Nova Enterprice Online</span>
         </div>
-        <div className="flex gap-6">
+        <div className="flex items-center gap-6">
           <Link to="/terminos" className="hover:text-foreground">
             Términos y condiciones
           </Link>
           <a href="https://novaenterprice.online" className="hover:text-foreground">
             novaenterprice.online
+          </a>
+          <a
+            href="https://github.com/zarina21"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="GitHub de zarina21"
+          >
+            <Github className="h-4 w-4" />
           </a>
         </div>
       </div>

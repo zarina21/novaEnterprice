@@ -16,7 +16,7 @@ import "crypto";
 import "async_hooks";
 import "stream";
 import "../_libs/isbot.mjs";
-const appCss = "/assets/styles-DQro35B0.css";
+const appCss = "/assets/styles-BnRbpOwL.css";
 function reportLovableError(error, context = {}) {
   if (typeof window === "undefined") return;
   window.__lovableEvents?.captureException?.(
@@ -47,7 +47,8 @@ function getSiteName() {
 function getDefaultDescription() {
   return "Desarrollamos proyectos web modernos con React, Next.js y JavaScript. Sitios rápidos, elegantes y a medida.";
 }
-const EMAIL_ADDRESS = "hola@novaenterprice.online";
+const EMAIL_ADDRESS = "contact@novaenterprice.online";
+const GITHUB_URL = "https://github.com/zarina21";
 const __vite_import_meta_env__ = {};
 const GA_ID = typeof import.meta !== "undefined" ? __vite_import_meta_env__?.VITE_GA_ID : void 0;
 function Analytics() {
@@ -101,7 +102,7 @@ function NotFoundComponent() {
 }
 function ErrorComponent({ error, reset }) {
   console.error(error);
-  const router = useRouter();
+  const router2 = useRouter();
   reactExports.useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
@@ -113,7 +114,7 @@ function ErrorComponent({ error, reset }) {
         "button",
         {
           onClick: () => {
-            router.invalidate();
+            router2.invalidate();
             reset();
           },
           className: "inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90",
@@ -234,7 +235,7 @@ const Route$5 = createFileRoute("/sitemap.xml")({
     }
   }
 });
-const $$splitComponentImporter$4 = () => import("../_site-XQvglTmC.mjs");
+const $$splitComponentImporter$4 = () => import("../_site-QT662PyZ.mjs");
 const Route$4 = createFileRoute("/_site")({
   component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
@@ -297,7 +298,7 @@ const Route$3 = createFileRoute("/_site/")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-const $$splitComponentImporter$2 = () => import("../_site.terminos-C2AwRIA1.mjs");
+const $$splitComponentImporter$2 = () => import("../_site.terminos-CZkwK8nJ.mjs");
 const baseUrl$2 = getBaseUrl();
 const Route$2 = createFileRoute("/_site/terminos")({
   head: () => ({
@@ -409,7 +410,7 @@ const Route$1 = createFileRoute("/_site/proyectos")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("../_site.contacto-IScWkpxD.mjs");
+const $$splitComponentImporter = () => import("../_site.contacto-C-htO7zs.mjs");
 const baseUrl = getBaseUrl();
 const Route = createFileRoute("/_site/contacto")({
   head: () => ({
@@ -498,14 +499,20 @@ const rootRouteChildren = {
 const routeTree = Route$6._addFileChildren(rootRouteChildren)._addFileTypes();
 const getRouter = () => {
   const queryClient = new QueryClient();
-  const router = createRouter({
+  const router2 = createRouter({
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0
   });
-  return router;
+  return router2;
 };
-export {
+const router = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
   getRouter
+}, Symbol.toStringTag, { value: "Module" }));
+export {
+  EMAIL_ADDRESS as E,
+  GITHUB_URL as G,
+  router as r
 };

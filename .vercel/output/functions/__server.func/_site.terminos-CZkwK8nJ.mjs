@@ -22,7 +22,7 @@ const sections = [{
   d: "NEO puede actualizar estos términos. Los cambios se publicarán en esta página."
 }, {
   t: "8. Contacto",
-  d: "Para cualquier consulta sobre estos términos, escríbenos a hola@novaenterprice.online."
+  d: "Para cualquier consulta sobre estos términos, escríbenos a contact@novaenterprice.online."
 }];
 function Terminos() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mx-auto max-w-3xl px-6 py-20", children: [

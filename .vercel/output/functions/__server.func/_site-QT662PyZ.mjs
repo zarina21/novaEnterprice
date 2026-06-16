@@ -5,7 +5,7 @@ import { D as Dialog, a as DialogTrigger, b as DialogClose, c as DialogPortal, d
 import { c as cva } from "./_libs/class-variance-authority.mjs";
 import { c as clsx } from "./_libs/clsx.mjs";
 import { t as twMerge } from "./_libs/tailwind-merge.mjs";
-import { M as Menu, X } from "./_libs/lucide-react.mjs";
+import { M as Menu, G as Github, X } from "./_libs/lucide-react.mjs";
 import "./_libs/tanstack__router-core.mjs";
 import "./_libs/tanstack__history.mjs";
 import "./_libs/cookie-es.mjs";
@@ -200,9 +200,20 @@ function SiteFooter() {
         " Nova Enterprice Online"
       ] })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-6", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-6", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/terminos", className: "hover:text-foreground", children: "Términos y condiciones" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://novaenterprice.online", className: "hover:text-foreground", children: "novaenterprice.online" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://novaenterprice.online", className: "hover:text-foreground", children: "novaenterprice.online" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "a",
+        {
+          href: "https://github.com/zarina21",
+          target: "_blank",
+          rel: "noopener noreferrer",
+          className: "inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors",
+          "aria-label": "GitHub de zarina21",
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx(Github, { className: "h-4 w-4" })
+        }
+      )
     ] })
   ] }) });
 }

@@ -1,9 +1,11 @@
 import { r as reactExports, j as jsxRuntimeExports } from "./_libs/react.mjs";
 import { u as useForm } from "./_libs/react-hook-form.mjs";
 import { t } from "./_libs/hookform__resolvers.mjs";
-import { a as createServerFn, T as TSS_SERVER_FUNCTION, g as getServerFnById } from "./_ssr/server-CJcXrtVy.mjs";
+import { a as createServerFn, T as TSS_SERVER_FUNCTION, g as getServerFnById } from "./_ssr/server-E7C9-A0c.mjs";
 import { T as Toaster, t as toast } from "./_libs/sonner.mjs";
+import { E as EMAIL_ADDRESS, G as GITHUB_URL } from "./_ssr/router-BNOB3xjK.mjs";
 import "./_libs/seroval.mjs";
+import { G as Github } from "./_libs/lucide-react.mjs";
 import { o as objectType, s as stringType } from "./_libs/zod.mjs";
 import "node:async_hooks";
 import "./_libs/h3-v2.mjs";
@@ -22,6 +24,8 @@ import "crypto";
 import "async_hooks";
 import "stream";
 import "./_libs/isbot.mjs";
+import "./_libs/tanstack__query-core.mjs";
+import "./_libs/tanstack__react-query.mjs";
 var createSsrRpc = (functionId) => {
   const url = "/_serverFn/" + functionId;
   const serverFnMeta = { id: functionId };
@@ -81,11 +85,20 @@ function Contacto() {
       /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "mt-8 space-y-3 text-sm", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-muted-foreground", children: "Email:" }),
-          " hola@novaenterprice.online"
+          " ",
+          EMAIL_ADDRESS
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-muted-foreground", children: "Web:" }),
           " novaenterprice.online"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-muted-foreground", children: "GitHub:" }),
+          " ",
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: GITHUB_URL, target: "_blank", rel: "noopener noreferrer", className: "inline-flex items-center gap-1.5 text-foreground hover:text-primary transition-colors", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Github, { className: "h-4 w-4", "aria-hidden": "true" }),
+            "zarina21"
+          ] })
         ] })
       ] })
     ] }),
