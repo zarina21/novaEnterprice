@@ -1,20 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  AlignHorizontalSpaceAround,
-  Atom,
-  Bot,
-  Braces,
-  BriefcaseBusiness,
   CodeXml,
-  Flame,
-  MonitorSmartphone,
   Palette,
-  PanelsTopLeft,
+  Braces,
+  Atom,
+  MonitorSmartphone,
   Rocket,
+  PanelsTopLeft,
+  Flame,
   Server,
+  Bot,
+  BriefcaseBusiness,
   type LucideIcon,
 } from "lucide-react";
 import logo from "@/assets/neo-logo.png";
+import { getBaseUrl, getSiteName, getDefaultDescription } from "@/lib/seo.config";
+
+const baseUrl = getBaseUrl();
 
 export const Route = createFileRoute("/_site/")({
   head: () => ({
@@ -31,17 +33,37 @@ export const Route = createFileRoute("/_site/")({
         content:
           "Desarrollo de proyectos web con React, Next.js y JavaScript. Planes desde $250/mes.",
       },
-      { property: "og:url", content: "https://novaenterprice.online/" },
+      { property: "og:url", content: `${baseUrl}/` },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://novaenterprice.online/neo-logo.png" },
+      { property: "og:image", content: `${baseUrl}/neo-logo.png` },
       { name: "twitter:title", content: "NEO — Nova Enterprice Online" },
       {
         name: "twitter:description",
         content: "Desarrollo de proyectos web con React, Next.js y JavaScript.",
       },
-      { name: "twitter:image", content: "https://novaenterprice.online/neo-logo.png" },
+      { name: "twitter:image", content: `${baseUrl}/neo-logo.png` },
     ],
-    links: [{ rel: "canonical", href: "https://novaenterprice.online/" }],
+    links: [{ rel: "canonical", href: `${baseUrl}/` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: getSiteName(),
+          url: baseUrl,
+          description: getDefaultDescription(),
+          potentialAction: {
+            "@type": "SearchAction",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: `${baseUrl}/buscar?q={search_term_string}`,
+            },
+            "query-input": "required name=search_term_string",
+          },
+        }),
+      },
+    ],
   }),
   component: Home,
 });
@@ -69,9 +91,10 @@ function Home() {
       <section className="mx-auto max-w-6xl px-6 pt-20 pb-24 text-center">
         <img
           src={logo}
-          alt="NEO"
+          alt="NEO — Nova Enterprice Online"
           className="mx-auto mb-8 h-28 w-28 drop-shadow-[0_0_40px_oklch(0.68_0.20_300/0.6)]"
-          loading="lazy"
+          width="112"
+          height="112"
         />
         <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/50 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
           <span className="h-1.5 w-1.5 rounded-full bg-gradient-brand" />
@@ -111,9 +134,9 @@ function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 pb-20">
+      <section className="mx-auto max-w-6xl px-6 pb-20" aria-labelledby="plans-heading">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl">
+          <h2 id="plans-heading" className="text-3xl font-bold sm:text-4xl">
             Planes para <span className="text-gradient-brand">páginas informativas</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
@@ -204,7 +227,6 @@ function Home() {
                       {item}
                     </li>
                   ))}
-
                 </ul>
                 <p className="mt-4 text-xs italic text-muted-foreground/70">
                   A partir de $100 menú digital
@@ -222,14 +244,14 @@ function Home() {
           })}
         </div>
       </section>
-      <section className="mx-auto max-w-6xl px-6 pb-20">
+      <section className="mx-auto max-w-6xl px-6 pb-20" aria-labelledby="skills-heading">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl">
+          <h2 id="skills-heading" className="text-3xl font-bold sm:text-4xl">
             Nivel de <span className="text-gradient-brand">conocimiento</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Estas son algunas de las tecnolog\u00edas con las que trabajamos y el nivel de
-            experiencia que aplicamos en proyectos web y productos digitales.
+            Estas son algunas de las tecnologías con las que trabajamos y el nivel de experiencia
+            que aplicamos en proyectos web y productos digitales.
           </p>
         </div>
 

@@ -11,6 +11,19 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { getBaseUrl, getSiteName, getDefaultDescription, EMAIL_ADDRESS } from "../lib/seo.config";
+import { Analytics } from "../components/Analytics";
+
+function SkipLink() {
+  return (
+    <a
+      href="#main-content"
+      className="fixed -top-40 left-4 z-[100] rounded-b-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-all focus:top-0 focus:outline-none"
+    >
+      Saltar al contenido principal
+    </a>
+  );
+}
 
 function NotFoundComponent() {
   return (
@@ -72,6 +85,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+const baseUrl = getBaseUrl();
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
@@ -79,10 +94,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         name: "description",
-        content:
-          "Nova Enterprice Online (NEO) — desarrollo de proyectos web modernos con React, Next.js, JavaScript y EmailJS. Sitios rápidos, elegantes y a medida.",
+        content: getDefaultDescription(),
       },
-      { name: "author", content: "Nova Enterprice Online" },
+      { name: "author", content: getSiteName() },
       {
         name: "keywords",
         content:
@@ -90,16 +104,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { name: "robots", content: "index, follow" },
       { name: "theme-color", content: "#0b0b14" },
-      { property: "og:site_name", content: "Nova Enterprice Online" },
+      { property: "og:site_name", content: getSiteName() },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "es_ES" },
-      { property: "og:image", content: "https://novaenterprice.online/neo-logo.png" },
+      { property: "og:image", content: `${baseUrl}/neo-logo.png` },
       { property: "og:image:width", content: "512" },
       { property: "og:image:height", content: "512" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://novaenterprice.online/neo-logo.png" },
+      { name: "twitter:image", content: `${baseUrl}/neo-logo.png` },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "alternate", href: baseUrl, hreflang: "es" },
+      { rel: "alternate", href: baseUrl, hreflang: "x-default" },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -108,9 +126,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "Organization",
           name: "Nova Enterprice Online",
           alternateName: "NEO",
-          url: "https://novaenterprice.online",
-          email: "hola@novaenterprice.online",
-          description: "Desarrolladora de proyectos web con React, Next.js, JavaScript y EmailJS.",
+          url: baseUrl,
+          email: EMAIL_ADDRESS,
+          logo: `${baseUrl}/neo-logo.png`,
+          description: getDefaultDescription(),
         }),
       },
     ],
@@ -128,8 +147,10 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <SkipLink />
         {children}
         <Scripts />
+        <Analytics />
       </body>
     </html>
   );
@@ -140,7 +161,6 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );

@@ -1,4 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { getBaseUrl, getSiteName, getDefaultDescription } from "@/lib/seo.config";
+
+const baseUrl = getBaseUrl();
 
 export const Route = createFileRoute("/_site/proyectos")({
   head: () => ({
@@ -14,11 +17,34 @@ export const Route = createFileRoute("/_site/proyectos")({
         property: "og:description",
         content: "Portafolio de proyectos web desarrollados por Nova Enterprice Online.",
       },
-      { property: "og:url", content: "https://novaenterprice.online/proyectos" },
+      { property: "og:url", content: `${baseUrl}/proyectos` },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://novaenterprice.online/neo-logo.png" },
+      { property: "og:image", content: `${baseUrl}/neo-logo.png` },
+      { name: "twitter:title", content: "Proyectos — NEO" },
+      {
+        name: "twitter:description",
+        content: "Portafolio de proyectos web desarrollados por Nova Enterprice Online.",
+      },
+      { name: "twitter:image", content: `${baseUrl}/neo-logo.png` },
     ],
-    links: [{ rel: "canonical", href: "https://novaenterprice.online/proyectos" }],
+    links: [{ rel: "canonical", href: `${baseUrl}/proyectos` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Proyectos — NEO",
+          description: "Portafolio de proyectos web desarrollados por Nova Enterprice Online.",
+          url: `${baseUrl}/proyectos`,
+          isPartOf: {
+            "@type": "WebSite",
+            name: getSiteName(),
+            url: baseUrl,
+          },
+        }),
+      },
+    ],
   }),
   component: Proyectos,
 });
@@ -83,6 +109,8 @@ function Proyectos() {
             <div
               className="mb-4 aspect-[16/10] rounded-xl opacity-80 transition-opacity group-hover:opacity-100"
               style={{ background: p.bg }}
+              role="img"
+              aria-label={`Ilustración de ${p.title}`}
             />
             <span className="text-xs uppercase tracking-widest text-muted-foreground">{p.tag}</span>
             <h3 className="mt-1 text-xl font-semibold">{p.title}</h3>

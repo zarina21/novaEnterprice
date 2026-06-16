@@ -13,7 +13,7 @@ function Layout() {
         style={{ background: "var(--gradient-hero)" }}
       />
       <SiteNav />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <Outlet />
       </main>
       <SiteFooter />

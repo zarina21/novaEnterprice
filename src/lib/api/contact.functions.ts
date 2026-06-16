@@ -27,7 +27,7 @@ async function sendEmailJS(templateId: string, params: Record<string, unknown>) 
 }
 
 export const submitContact = createServerFn({ method: "POST" })
-  .inputValidator(contactSchema)
+  .validator(contactSchema)
   .handler(async ({ data }) => {
     await Promise.all([
       sendEmailJS("template_fm6weeq", {

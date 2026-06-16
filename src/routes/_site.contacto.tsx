@@ -4,6 +4,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { submitContact } from "@/lib/api/contact.functions";
 import { useState } from "react";
+import { Toaster, toast } from "sonner";
+import { getBaseUrl } from "@/lib/seo.config";
+
+const baseUrl = getBaseUrl();
 
 export const Route = createFileRoute("/_site/contacto")({
   head: () => ({
@@ -19,11 +23,17 @@ export const Route = createFileRoute("/_site/contacto")({
         property: "og:description",
         content: "Contáctanos para iniciar tu proyecto web. Respondemos en menos de 24 horas.",
       },
-      { property: "og:url", content: "https://novaenterprice.online/contacto" },
+      { property: "og:url", content: `${baseUrl}/contacto` },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://novaenterprice.online/neo-logo.png" },
+      { property: "og:image", content: `${baseUrl}/neo-logo.png` },
+      { name: "twitter:title", content: "Contacto — NEO" },
+      {
+        name: "twitter:description",
+        content: "Contáctanos para iniciar tu proyecto web. Respondemos en menos de 24 horas.",
+      },
+      { name: "twitter:image", content: `${baseUrl}/neo-logo.png` },
     ],
-    links: [{ rel: "canonical", href: "https://novaenterprice.online/contacto" }],
+    links: [{ rel: "canonical", href: `${baseUrl}/contacto` }],
   }),
   component: Contacto,
 });
@@ -52,6 +62,7 @@ function Contacto() {
       setSent(true);
     } catch (e) {
       console.error("Error sending message:", e);
+      toast.error("Error al enviar el mensaje. Intenta de nuevo más tarde.");
     }
   };
 
@@ -77,6 +88,7 @@ function Contacto() {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="rounded-2xl border border-border/70 bg-card/60 p-8 backdrop-blur"
+        noValidate
       >
         {sent ? (
           <div className="py-10 text-center">
@@ -86,24 +98,32 @@ function Contacto() {
           </div>
         ) : (
           <div className="space-y-4">
-            <Field label="Nombre" error={errors.name?.message}>
+            <Field label="Nombre" error={errors.name?.message} htmlFor="contact-name">
               <input
+                id="contact-name"
                 {...register("name")}
                 className="w-full rounded-lg border border-border bg-background/60 px-4 py-3 text-sm outline-none focus:border-primary"
+                aria-required="true"
+                autoComplete="name"
               />
             </Field>
-            <Field label="Email" error={errors.email?.message}>
+            <Field label="Email" error={errors.email?.message} htmlFor="contact-email">
               <input
+                id="contact-email"
                 type="email"
                 {...register("email")}
                 className="w-full rounded-lg border border-border bg-background/60 px-4 py-3 text-sm outline-none focus:border-primary"
+                aria-required="true"
+                autoComplete="email"
               />
             </Field>
-            <Field label="Mensaje" error={errors.message?.message}>
+            <Field label="Mensaje" error={errors.message?.message} htmlFor="contact-message">
               <textarea
+                id="contact-message"
                 rows={5}
                 {...register("message")}
                 className="w-full resize-none rounded-lg border border-border bg-background/60 px-4 py-3 text-sm outline-none focus:border-primary"
+                aria-required="true"
               />
             </Field>
             <button
@@ -116,6 +136,16 @@ function Contacto() {
           </div>
         )}
       </form>
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          style: {
+            background: "var(--color-card)",
+            color: "var(--color-foreground)",
+            border: "1px solid var(--color-border)",
+          },
+        }}
+      />
     </section>
   );
 }
@@ -123,19 +153,28 @@ function Contacto() {
 function Field({
   label,
   error,
+  htmlFor,
   children,
 }: {
   label: string;
   error?: string;
+  htmlFor: string;
   children: React.ReactNode;
 }) {
   return (
-    <label className="block">
-      <span className="mb-1.5 block text-xs uppercase tracking-widest text-muted-foreground">
+    <div>
+      <label
+        htmlFor={htmlFor}
+        className="mb-1.5 block text-xs uppercase tracking-widest text-muted-foreground"
+      >
         {label}
-      </span>
+      </label>
       {children}
-      {error && <span className="mt-1 block text-xs text-red-400">{error}</span>}
-    </label>
+      {error && (
+        <span className="mt-1 block text-xs text-red-400" role="alert">
+          {error}
+        </span>
+      )}
+    </div>
   );
 }

@@ -1,0 +1,51 @@
+import { j as jsxRuntimeExports } from "./_libs/react.mjs";
+const sections = [{
+  t: "1. Aceptación",
+  d: "Al contratar nuestros servicios, aceptas estos términos en su totalidad. Si no estás de acuerdo, te pedimos no utilizar nuestros servicios."
+}, {
+  t: "2. Servicios",
+  d: "NEO ofrece diseño y desarrollo de proyectos web a medida usando tecnologías como React, JavaScript, Next.js y EmailJS."
+}, {
+  t: "3. Propiedad intelectual",
+  d: "El cliente es propietario del producto final una vez liquidado el pago. NEO conserva el derecho de mostrarlo en su portafolio."
+}, {
+  t: "4. Pagos",
+  d: "Los proyectos requieren un anticipo del 50% para iniciar. El saldo restante se abona antes de la entrega final."
+}, {
+  t: "5. Plazos",
+  d: "Los tiempos se acuerdan por proyecto. Retrasos por parte del cliente en entrega de contenidos pueden afectar la fecha de entrega."
+}, {
+  t: "6. Confidencialidad",
+  d: "Toda información compartida durante el proyecto se trata de forma confidencial."
+}, {
+  t: "7. Modificaciones",
+  d: "NEO puede actualizar estos términos. Los cambios se publicarán en esta página."
+}, {
+  t: "8. Contacto",
+  d: "Para cualquier consulta sobre estos términos, escríbenos a hola@novaenterprice.online."
+}];
+function Terminos() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mx-auto max-w-3xl px-6 py-20", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm uppercase tracking-[0.25em] text-muted-foreground", children: "Legal" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "mt-3 text-5xl font-bold", children: [
+      "Términos y ",
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-gradient-brand", children: "Condiciones" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "mt-4 text-sm text-muted-foreground", children: [
+      "Última actualización:",
+      " ",
+      (/* @__PURE__ */ new Date()).toLocaleDateString("es-ES", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-12 space-y-8", children: sections.map((s) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-semibold", children: s.t }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-2 text-muted-foreground leading-relaxed", children: s.d })
+    ] }, s.t)) })
+  ] });
+}
+export {
+  Terminos as component
+};
