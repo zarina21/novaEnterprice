@@ -6,9 +6,10 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/s
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/proyectos", label: "Proyectos" },
-  { to: "/contacto", label: "Contacto" },
-  { to: "/terminos", label: "Términos" },
+  { to: "/proyectos", label: "Projects" },
+  { to: "/contacto", label: "Contact" },
+  { to: "/privacy", label: "Privacy" },
+  { to: "/terminos", label: "Terms" },
 ] as const;
 
 export function SiteNav() {
@@ -48,7 +49,7 @@ export function SiteNav() {
           to="/contacto"
           className="hidden rounded-full bg-gradient-brand px-5 py-2 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.03] sm:inline-flex"
         >
-          Iniciar proyecto
+          Start a project
         </Link>
 
         {/* Mobile hamburger */}
@@ -56,7 +57,7 @@ export function SiteNav() {
           <SheetTrigger asChild>
             <button
               className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-muted/60 text-foreground md:hidden"
-              aria-label="Abrir menú"
+              aria-label="Open menu"
             >
               <Menu className="h-5 w-5" />
             </button>
@@ -99,7 +100,7 @@ export function SiteNav() {
                   className="mt-2 inline-flex items-center justify-center rounded-full bg-gradient-brand px-5 py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.03]"
                   onClick={() => setOpen(false)}
                 >
-                  Iniciar proyecto
+                  Start a project
                 </Link>
               </SheetClose>
             </div>
@@ -119,8 +120,11 @@ export function SiteFooter() {
           <span>© {new Date().getFullYear()} Nova Enterprice Online</span>
         </div>
         <div className="flex items-center gap-6">
+          <Link to="/privacy" className="hover:text-foreground">
+            Privacy Policy
+          </Link>
           <Link to="/terminos" className="hover:text-foreground">
-            Términos y condiciones
+            Terms & Conditions
           </Link>
           <a href="https://novaenterprice.online" className="hover:text-foreground">
             novaenterprice.online

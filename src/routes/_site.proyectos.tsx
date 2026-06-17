@@ -7,24 +7,24 @@ const baseUrl = getBaseUrl();
 export const Route = createFileRoute("/_site/proyectos")({
   head: () => ({
     meta: [
-      { title: "Proyectos — NEO | Nova Enterprice Online" },
+      { title: "Projects — NEO | Nova Enterprice Online" },
       {
         name: "description",
         content:
-          "Portafolio de proyectos web desarrollados por Nova Enterprice Online: landings, e-commerce, blogs y apps con React y Next.js.",
+          "Portfolio of web projects developed by Nova Enterprice Online.",
       },
-      { property: "og:title", content: "Proyectos — NEO" },
+      { property: "og:title", content: "Projects — NEO" },
       {
         property: "og:description",
-        content: "Portafolio de proyectos web desarrollados por Nova Enterprice Online.",
+        content: "Portfolio of web projects developed by Nova Enterprice Online.",
       },
       { property: "og:url", content: `${baseUrl}/proyectos` },
       { property: "og:type", content: "website" },
       { property: "og:image", content: `${baseUrl}/neo-logo.png` },
-      { name: "twitter:title", content: "Proyectos — NEO" },
+      { name: "twitter:title", content: "Projects — NEO" },
       {
         name: "twitter:description",
-        content: "Portafolio de proyectos web desarrollados por Nova Enterprice Online.",
+        content: "Portfolio of web projects developed by Nova Enterprice Online.",
       },
       { name: "twitter:image", content: `${baseUrl}/neo-logo.png` },
     ],
@@ -35,8 +35,8 @@ export const Route = createFileRoute("/_site/proyectos")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Proyectos — NEO",
-          description: "Portafolio de proyectos web desarrollados por Nova Enterprice Online.",
+          name: "Projects — NEO",
+          description: "Portfolio of web projects developed by Nova Enterprice Online.",
           url: `${baseUrl}/proyectos`,
           isPartOf: {
             "@type": "WebSite",
@@ -53,7 +53,7 @@ export const Route = createFileRoute("/_site/proyectos")({
 const projects = [
   {
     title: "Albion Forge",
-    desc: "Marketplace en vivo de Albion Online con precios en tiempo real, historial de mercado, builds, oro y recursos.",
+    desc: "Live marketplace for Albion Online with real-time prices, market history, builds, gold and resources.",
     tag: "Next.js",
     url: "https://albionforge.online",
     img: "/albionforge-thumb.png",
@@ -61,32 +61,32 @@ const projects = [
       "Framework: Next.js 15 (App Router, SSR, API Routes)",
       "UI: React 19 + TypeScript + Tailwind CSS v4 + shadcn/ui",
       "ORM: Prisma + PostgreSQL (Neon) / SQLite (dev)",
-      "Estado: TanStack React Query + Zustand",
-      "API: Albion Online Data Project (proxy via Next.js API)",
-      "Builds: PvP stats, costos por mercado, híbridos",
-      "Monetización: Google AdSense",
+      "State: TanStack React Query + Zustand",
+      "API: Albion Online Data Project (proxied via Next.js API)",
+      "Builds: PvP stats, market costs, hybrid",
+      "Monetization: Google AdSense",
       "Analytics: Vercel Web Analytics",
-      "Gráficos: Recharts (historial de precios y oro)",
-      "Formulario: react-hook-form + Zod + sonner",
-      "Autenticación: HTTP Basic Auth para panel admin",
-      "SEO: JSON-LD, sitemap dinámico, robots.txt",
-      "Desplegado en Vercel con Postgres (Neon)",
+      "Charts: Recharts (price history and gold)",
+      "Form: react-hook-form + Zod + sonner",
+      "Authentication: HTTP Basic Auth for admin panel",
+      "SEO: JSON-LD, dynamic sitemap, robots.txt",
+      "Deployed on Vercel with Postgres (Neon)",
     ],
   },
   {
     title: "Nova Enterprice",
-    desc: "Nuestro propio sitio corporativo. Este que estás viendo.",
+    desc: "Our own corporate site. The one you're looking at.",
     tag: "TanStack",
     url: "/",
     specs: [
       "Framework: TanStack Start + React 19 + Vite",
-      "UI: Tailwind CSS + diseño responsive + dark mode",
-      "Formulario: react-hook-form + Zod + Web3Forms",
+      "UI: Tailwind CSS + responsive design + dark mode",
+      "Form: react-hook-form + Zod + Web3Forms",
       "SEO: JSON-LD, Open Graph, Twitter Cards, hreflang",
-      "Accesibilidad: skip-to-content, focus-visible, aria labels",
-      "Analytics: GA4 condicional (solo con VITE_GA_ID)",
-      "Email: Web3Forms con notificaciones",
-      "Desplegado en Vercel (preset nitro)",
+      "Accessibility: skip-to-content, focus-visible, aria labels",
+      "Analytics: Conditional GA4 (only with VITE_GA_ID)",
+      "Email: Web3Forms with notifications",
+      "Deployed on Vercel (nitro preset)",
     ],
   },
 ];
@@ -99,10 +99,10 @@ function Proyectos() {
       <header className="mb-12 max-w-2xl">
         <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground">Portfolio</p>
         <h1 className="mt-3 text-5xl font-bold">
-          Proyectos <span className="text-gradient-brand">NEO</span>
+          Projects <span className="text-gradient-brand">NEO</span>
         </h1>
         <p className="mt-4 text-muted-foreground">
-          Una muestra del trabajo que entregamos a nuestros clientes.
+          A sample of the work we deliver to our clients.
         </p>
       </header>
       <div className="grid gap-6 md:grid-cols-2">
@@ -120,7 +120,7 @@ function Proyectos() {
                 <div className="mb-4 aspect-[16/10] overflow-hidden rounded-xl">
                   <img
                     src={p.img}
-                    alt={`Captura de ${p.title}`}
+                    alt={`Screenshot of ${p.title}`}
                     className="h-full w-full object-cover transition-transform group-hover:scale-105"
                     loading="lazy"
                   />
@@ -130,7 +130,7 @@ function Proyectos() {
                   className="mb-4 aspect-[16/10] rounded-xl opacity-80 transition-opacity group-hover:opacity-100"
                   style={{ background: p.bg }}
                   role="img"
-                  aria-label={`Ilustración de ${p.title}`}
+                  aria-label={`Illustration of ${p.title}`}
                 />
               )}
             </a>
@@ -144,7 +144,7 @@ function Proyectos() {
                 rel={p.url.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
               >
-                Visitar sitio &rarr;
+                Visit site &rarr;
               </a>
             )}
             {p.specs && (
@@ -152,7 +152,7 @@ function Proyectos() {
                 onClick={() => setExpanded(expanded === p.title ? null : p.title)}
                 className="mt-3 flex w-full items-center justify-between rounded-lg border border-border/50 px-3 py-2 text-xs text-muted-foreground hover:bg-accent/50 transition-colors"
               >
-                Especificaciones técnicas
+                Technical specs
                 <span className={`transition-transform ${expanded === p.title ? "rotate-180" : ""}`}>
                   &#9660;
                 </span>

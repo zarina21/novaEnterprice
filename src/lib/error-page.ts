@@ -1,9 +1,9 @@
 export function renderErrorPage(): string {
   return `<!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Esta página no cargó — NEO</title>
+    <title>This page could not be loaded — NEO</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       body { font: 15px/1.5 system-ui, -apple-system, sans-serif; background: #0b0b14; color: #f0f0f0; display: grid; place-items: center; min-height: 100vh; margin: 0; padding: 1.5rem; }
@@ -18,11 +18,11 @@ export function renderErrorPage(): string {
   </head>
   <body>
     <div class="card">
-      <h1>Esta página no cargó</h1>
-      <p>Algo salió mal en nuestro servidor. Puedes intentar recargar o volver al inicio.</p>
+      <h1>This page could not be loaded</h1>
+      <p>Something went wrong on our server. You can try reloading or go back home.</p>
       <div class="actions">
-        <button class="primary" onclick="location.reload()">Intentar de nuevo</button>
-        <a class="secondary" href="/">Volver al inicio</a>
+        <button class="primary" onclick="location.reload()">Try again</button>
+        <a class="secondary" href="/">Go home</a>
       </div>
     </div>
   </body>

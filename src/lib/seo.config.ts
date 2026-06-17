@@ -12,7 +12,7 @@ export function getSiteName(): string {
 }
 
 export function getDefaultDescription(): string {
-  return "Desarrollamos proyectos web modernos con React, Next.js y JavaScript. Sitios rápidos, elegantes y a medida.";
+  return "We build modern web projects with React, Next.js and JavaScript. Fast, elegant, custom sites.";
 }
 
 export const EMAIL_ADDRESS = "contact@novaenterprice.online";

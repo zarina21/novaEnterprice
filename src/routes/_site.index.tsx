@@ -21,17 +21,17 @@ const baseUrl = getBaseUrl();
 export const Route = createFileRoute("/_site/")({
   head: () => ({
     meta: [
-      { title: "NEO — Nova Enterprice Online | Desarrollo web" },
+      { title: "NEO — Nova Enterprice Online | Web Development" },
       {
         name: "description",
         content:
-          "Desarrollamos proyectos web modernos con React, Next.js y JavaScript. Sitios rápidos, elegantes y a medida desde $250/mes.",
+          "We build modern web projects with React, Next.js and JavaScript. Fast, elegant, custom sites from $250/mo.",
       },
       { property: "og:title", content: "NEO — Nova Enterprice Online" },
       {
         property: "og:description",
         content:
-          "Desarrollo de proyectos web con React, Next.js y JavaScript. Planes desde $250/mes.",
+          "Web development with React, Next.js and JavaScript. Plans from $250/mo.",
       },
       { property: "og:url", content: `${baseUrl}/` },
       { property: "og:type", content: "website" },
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/_site/")({
       { name: "twitter:title", content: "NEO — Nova Enterprice Online" },
       {
         name: "twitter:description",
-        content: "Desarrollo de proyectos web con React, Next.js y JavaScript.",
+        content: "Web development with React, Next.js and JavaScript.",
       },
       { name: "twitter:image", content: `${baseUrl}/neo-logo.png` },
     ],
@@ -101,24 +101,24 @@ function Home() {
           novaenterprice.online
         </div>
         <h1 className="mx-auto max-w-3xl text-5xl font-bold leading-[1.05] sm:text-6xl md:text-7xl">
-          Construimos la web que <span className="text-gradient-brand">tu marca</span> merece.
+          We build the web your <span className="text-gradient-brand">brand</span> deserves.
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-          En <strong className="text-foreground">Nova Enterprice Online</strong> diseñamos y
-          desarrollamos proyectos web a medida — rápidos, modernos y pensados para crecer.
+          At <strong className="text-foreground">Nova Enterprice Online</strong> we design and
+          develop custom web projects — fast, modern, built to grow.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           <Link
             to="/contacto"
             className="rounded-full bg-gradient-brand px-7 py-3 text-base font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.03]"
           >
-            Cuéntanos tu idea
+            Tell us your idea
           </Link>
           <Link
             to="/proyectos"
             className="rounded-full border border-border bg-card/50 px-7 py-3 text-base font-medium text-foreground backdrop-blur transition-colors hover:bg-card"
           >
-            Ver proyectos
+            View projects
           </Link>
         </div>
         <div className="mt-12 flex flex-wrap items-center justify-center gap-2 text-xs text-muted-foreground">
@@ -137,52 +137,52 @@ function Home() {
       <section className="mx-auto max-w-6xl px-6 pb-20" aria-labelledby="plans-heading">
         <div className="mb-12 text-center">
           <h2 id="plans-heading" className="text-3xl font-bold sm:text-4xl">
-            Planes para <span className="text-gradient-brand">páginas informativas</span>
+            Plans for <span className="text-gradient-brand">informational pages</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Todo lo que necesita tu negocio para estar en línea, sin complicaciones.
+            Everything your business needs to be online, hassle-free.
           </p>
         </div>
         <div className="grid gap-5 md:grid-cols-3">
           {[
             {
-              plan: "Mensual",
+              plan: "Monthly",
               months: 1,
               price: "$250",
-              period: "/mes",
-              billing: "Paga mes a mes",
+              period: "/mo",
+              billing: "Pay month to month",
               includes: [
-                "Página informativa",
-                "Formulario de contacto",
-                "Dirección y horarios",
-                "Testimonios",
+                "Informational page",
+                "Contact form",
+                "Address & hours",
+                "Testimonials",
               ],
             },
             {
-              plan: "Semestral",
+              plan: "Semi-annual",
               months: 6,
               price: "$600",
-              period: "/6 meses",
-              billing: "Paga cada 6 meses",
+              period: "/6 mo",
+              billing: "Pay every 6 months",
               popular: true,
               includes: [
-                "Página informativa",
-                "Formulario de contacto",
-                "Dirección y horarios",
-                "Testimonios",
+                "Informational page",
+                "Contact form",
+                "Address & hours",
+                "Testimonials",
               ],
             },
             {
-              plan: "Anual",
+              plan: "Yearly",
               months: 12,
               price: "$1,000",
-              period: "/año",
-              billing: "Paga una vez al año",
+              period: "/year",
+              billing: "Pay once a year",
               includes: [
-                "Página informativa",
-                "Formulario de contacto",
-                "Dirección y horarios",
-                "Testimonios",
+                "Informational page",
+                "Contact form",
+                "Address & hours",
+                "Testimonials",
               ],
             },
           ].map((p) => {
@@ -202,7 +202,7 @@ function Home() {
               >
                 {p.popular && (
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-brand px-4 py-1 text-xs font-semibold text-primary-foreground">
-                    Más popular
+                    Most popular
                   </span>
                 )}
                 <h3 className="text-lg font-semibold">{p.plan}</h3>
@@ -213,9 +213,9 @@ function Home() {
                 <p className="mt-1 text-xs text-muted-foreground/70">{p.billing}</p>
                 {discountPercent > 0 && (
                   <div className="mt-3 space-y-1 text-sm">
-                    <p className="font-medium text-emerald-400">Descuento: {discountPercent}%</p>
+                    <p className="font-medium text-emerald-400">Discount: {discountPercent}%</p>
                     <p className="text-xs text-muted-foreground/80">
-                      Antes ${regularPrice.toLocaleString("en-US")} - Ahorra $
+                      Before ${regularPrice.toLocaleString("en-US")} — Save $
                       {savings.toLocaleString("en-US")}
                     </p>
                   </div>
@@ -229,14 +229,14 @@ function Home() {
                   ))}
                 </ul>
                 <p className="mt-4 text-xs italic text-muted-foreground/70">
-                  A partir de $100 menú digital
+                  From $100 digital menu add-on
                 </p>
                 <div className="mt-auto pt-6">
                   <Link
                     to="/contacto"
                     className="block w-full rounded-full bg-gradient-brand px-5 py-2.5 text-center text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.03]"
                   >
-                    Elegir plan
+                    Choose plan
                   </Link>
                 </div>
               </div>
@@ -247,11 +247,11 @@ function Home() {
       <section className="mx-auto max-w-6xl px-6 pb-20" aria-labelledby="skills-heading">
         <div className="mb-12 text-center">
           <h2 id="skills-heading" className="text-3xl font-bold sm:text-4xl">
-            Nivel de <span className="text-gradient-brand">conocimiento</span>
+            Skill <span className="text-gradient-brand">level</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Estas son algunas de las tecnologías con las que trabajamos y el nivel de experiencia
-            que aplicamos en proyectos web y productos digitales.
+            These are some of the technologies we work with and the experience level
+            we apply in our web projects and digital products.
           </p>
         </div>
 
