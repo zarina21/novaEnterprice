@@ -12,10 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SiteRouteImport } from './routes/_site'
 import { Route as SiteIndexRouteImport } from './routes/_site.index'
-import { Route as SiteTerminosRouteImport } from './routes/_site.terminos'
-import { Route as SiteProyectosRouteImport } from './routes/_site.proyectos'
+import { Route as SiteTermsRouteImport } from './routes/_site.terms'
+import { Route as SiteProjectsRouteImport } from './routes/_site.projects'
 import { Route as SitePrivacyRouteImport } from './routes/_site.privacy'
-import { Route as SiteContactoRouteImport } from './routes/_site.contacto'
+import { Route as SiteContactRouteImport } from './routes/_site.contact'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -31,14 +31,14 @@ const SiteIndexRoute = SiteIndexRouteImport.update({
   path: '/',
   getParentRoute: () => SiteRoute,
 } as any)
-const SiteTerminosRoute = SiteTerminosRouteImport.update({
-  id: '/terminos',
-  path: '/terminos',
+const SiteTermsRoute = SiteTermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => SiteRoute,
 } as any)
-const SiteProyectosRoute = SiteProyectosRouteImport.update({
-  id: '/proyectos',
-  path: '/proyectos',
+const SiteProjectsRoute = SiteProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
   getParentRoute: () => SiteRoute,
 } as any)
 const SitePrivacyRoute = SitePrivacyRouteImport.update({
@@ -46,36 +46,36 @@ const SitePrivacyRoute = SitePrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => SiteRoute,
 } as any)
-const SiteContactoRoute = SiteContactoRouteImport.update({
-  id: '/contacto',
-  path: '/contacto',
+const SiteContactRoute = SiteContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => SiteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof SiteIndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/contacto': typeof SiteContactoRoute
+  '/contact': typeof SiteContactRoute
   '/privacy': typeof SitePrivacyRoute
-  '/proyectos': typeof SiteProyectosRoute
-  '/terminos': typeof SiteTerminosRoute
+  '/projects': typeof SiteProjectsRoute
+  '/terms': typeof SiteTermsRoute
 }
 export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/contacto': typeof SiteContactoRoute
+  '/contact': typeof SiteContactRoute
   '/privacy': typeof SitePrivacyRoute
-  '/proyectos': typeof SiteProyectosRoute
-  '/terminos': typeof SiteTerminosRoute
+  '/projects': typeof SiteProjectsRoute
+  '/terms': typeof SiteTermsRoute
   '/': typeof SiteIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_site': typeof SiteRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/_site/contacto': typeof SiteContactoRoute
+  '/_site/contact': typeof SiteContactRoute
   '/_site/privacy': typeof SitePrivacyRoute
-  '/_site/proyectos': typeof SiteProyectosRoute
-  '/_site/terminos': typeof SiteTerminosRoute
+  '/_site/projects': typeof SiteProjectsRoute
+  '/_site/terms': typeof SiteTermsRoute
   '/_site/': typeof SiteIndexRoute
 }
 export interface FileRouteTypes {
@@ -83,26 +83,20 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/sitemap.xml'
-    | '/contacto'
+    | '/contact'
     | '/privacy'
-    | '/proyectos'
-    | '/terminos'
+    | '/projects'
+    | '/terms'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/sitemap.xml'
-    | '/contacto'
-    | '/privacy'
-    | '/proyectos'
-    | '/terminos'
-    | '/'
+  to: '/sitemap.xml' | '/contact' | '/privacy' | '/projects' | '/terms' | '/'
   id:
     | '__root__'
     | '/_site'
     | '/sitemap.xml'
-    | '/_site/contacto'
+    | '/_site/contact'
     | '/_site/privacy'
-    | '/_site/proyectos'
-    | '/_site/terminos'
+    | '/_site/projects'
+    | '/_site/terms'
     | '/_site/'
   fileRoutesById: FileRoutesById
 }
@@ -134,18 +128,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteIndexRouteImport
       parentRoute: typeof SiteRoute
     }
-    '/_site/terminos': {
-      id: '/_site/terminos'
-      path: '/terminos'
-      fullPath: '/terminos'
-      preLoaderRoute: typeof SiteTerminosRouteImport
+    '/_site/terms': {
+      id: '/_site/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof SiteTermsRouteImport
       parentRoute: typeof SiteRoute
     }
-    '/_site/proyectos': {
-      id: '/_site/proyectos'
-      path: '/proyectos'
-      fullPath: '/proyectos'
-      preLoaderRoute: typeof SiteProyectosRouteImport
+    '/_site/projects': {
+      id: '/_site/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof SiteProjectsRouteImport
       parentRoute: typeof SiteRoute
     }
     '/_site/privacy': {
@@ -155,29 +149,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitePrivacyRouteImport
       parentRoute: typeof SiteRoute
     }
-    '/_site/contacto': {
-      id: '/_site/contacto'
-      path: '/contacto'
-      fullPath: '/contacto'
-      preLoaderRoute: typeof SiteContactoRouteImport
+    '/_site/contact': {
+      id: '/_site/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof SiteContactRouteImport
       parentRoute: typeof SiteRoute
     }
   }
 }
 
 interface SiteRouteChildren {
-  SiteContactoRoute: typeof SiteContactoRoute
+  SiteContactRoute: typeof SiteContactRoute
   SitePrivacyRoute: typeof SitePrivacyRoute
-  SiteProyectosRoute: typeof SiteProyectosRoute
-  SiteTerminosRoute: typeof SiteTerminosRoute
+  SiteProjectsRoute: typeof SiteProjectsRoute
+  SiteTermsRoute: typeof SiteTermsRoute
   SiteIndexRoute: typeof SiteIndexRoute
 }
 
 const SiteRouteChildren: SiteRouteChildren = {
-  SiteContactoRoute: SiteContactoRoute,
+  SiteContactRoute: SiteContactRoute,
   SitePrivacyRoute: SitePrivacyRoute,
-  SiteProyectosRoute: SiteProyectosRoute,
-  SiteTerminosRoute: SiteTerminosRoute,
+  SiteProjectsRoute: SiteProjectsRoute,
+  SiteTermsRoute: SiteTermsRoute,
   SiteIndexRoute: SiteIndexRoute,
 }
 

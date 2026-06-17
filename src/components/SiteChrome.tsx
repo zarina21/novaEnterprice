@@ -6,10 +6,10 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/s
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/proyectos", label: "Projects" },
-  { to: "/contacto", label: "Contact" },
+  { to: "/projects", label: "Projects" },
+  { to: "/contact", label: "Contact" },
   { to: "/privacy", label: "Privacy" },
-  { to: "/terminos", label: "Terms" },
+  { to: "/terms", label: "Terms" },
 ] as const;
 
 export function SiteNav() {
@@ -46,7 +46,7 @@ export function SiteNav() {
         </ul>
 
         <Link
-          to="/contacto"
+          to="/contact"
           className="hidden rounded-full bg-gradient-brand px-5 py-2 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.03] sm:inline-flex"
         >
           Start a project
@@ -96,7 +96,7 @@ export function SiteNav() {
               </ul>
               <SheetClose asChild>
                 <Link
-                  to="/contacto"
+                  to="/contact"
                   className="mt-2 inline-flex items-center justify-center rounded-full bg-gradient-brand px-5 py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.03]"
                   onClick={() => setOpen(false)}
                 >
@@ -123,7 +123,7 @@ export function SiteFooter() {
           <Link to="/privacy" className="hover:text-foreground">
             Privacy Policy
           </Link>
-          <Link to="/terminos" className="hover:text-foreground">
+          <Link to="/terms" className="hover:text-foreground">
             Terms & Conditions
           </Link>
           <a href="https://novaenterprice.online" className="hover:text-foreground">

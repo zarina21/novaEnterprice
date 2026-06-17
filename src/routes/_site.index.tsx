@@ -109,13 +109,13 @@ function Home() {
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           <Link
-            to="/contacto"
+            to="/contact"
             className="rounded-full bg-gradient-brand px-7 py-3 text-base font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.03]"
           >
             Tell us your idea
           </Link>
           <Link
-            to="/proyectos"
+            to="/projects"
             className="rounded-full border border-border bg-card/50 px-7 py-3 text-base font-medium text-foreground backdrop-blur transition-colors hover:bg-card"
           >
             View projects
@@ -233,7 +233,7 @@ function Home() {
                 </p>
                 <div className="mt-auto pt-6">
                   <Link
-                    to="/contacto"
+                    to="/contact"
                     className="block w-full rounded-full bg-gradient-brand px-5 py-2.5 text-center text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.03]"
                   >
                     Choose plan

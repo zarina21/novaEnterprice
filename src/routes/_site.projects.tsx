@@ -4,7 +4,7 @@ import { getBaseUrl, getSiteName } from "@/lib/seo.config";
 
 const baseUrl = getBaseUrl();
 
-export const Route = createFileRoute("/_site/proyectos")({
+export const Route = createFileRoute("/_site/projects")({
   head: () => ({
     meta: [
       { title: "Projects — NEO | Nova Enterprice Online" },
@@ -18,7 +18,7 @@ export const Route = createFileRoute("/_site/proyectos")({
         property: "og:description",
         content: "Portfolio of web projects developed by Nova Enterprice Online.",
       },
-      { property: "og:url", content: `${baseUrl}/proyectos` },
+      { property: "og:url", content: `${baseUrl}/projects` },
       { property: "og:type", content: "website" },
       { property: "og:image", content: `${baseUrl}/neo-logo.png` },
       { name: "twitter:title", content: "Projects — NEO" },
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/_site/proyectos")({
       },
       { name: "twitter:image", content: `${baseUrl}/neo-logo.png` },
     ],
-    links: [{ rel: "canonical", href: `${baseUrl}/proyectos` }],
+    links: [{ rel: "canonical", href: `${baseUrl}/projects` }],
     scripts: [
       {
         type: "application/ld+json",
@@ -37,7 +37,7 @@ export const Route = createFileRoute("/_site/proyectos")({
           "@type": "CollectionPage",
           name: "Projects — NEO",
           description: "Portfolio of web projects developed by Nova Enterprice Online.",
-          url: `${baseUrl}/proyectos`,
+          url: `${baseUrl}/projects`,
           isPartOf: {
             "@type": "WebSite",
             name: getSiteName(),
@@ -78,6 +78,7 @@ const projects = [
     desc: "Our own corporate site. The one you're looking at.",
     tag: "TanStack",
     url: "/",
+    bg: "linear-gradient(135deg, #1e1b4b, #312e81)",
     specs: [
       "Framework: TanStack Start + React 19 + Vite",
       "UI: Tailwind CSS + responsive design + dark mode",

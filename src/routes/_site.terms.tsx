@@ -3,7 +3,7 @@ import { getBaseUrl, getSiteName } from "@/lib/seo.config";
 
 const baseUrl = getBaseUrl();
 
-export const Route = createFileRoute("/_site/terminos")({
+export const Route = createFileRoute("/_site/terms")({
   head: () => ({
     meta: [
       { title: "Terms and Conditions — NEO | Nova Enterprice Online" },
@@ -14,14 +14,14 @@ export const Route = createFileRoute("/_site/terminos")({
       },
       { property: "og:title", content: "Terms and Conditions — NEO" },
       { property: "og:description", content: "Terms and Conditions of Nova Enterprice Online." },
-      { property: "og:url", content: `${baseUrl}/terminos` },
+      { property: "og:url", content: `${baseUrl}/terms` },
       { property: "og:type", content: "website" },
       { name: "robots", content: "index, follow" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Terms and Conditions — NEO" },
       { name: "twitter:description", content: "Terms and Conditions of Nova Enterprice Online." },
     ],
-    links: [{ rel: "canonical", href: `${baseUrl}/terminos` }],
+    links: [{ rel: "canonical", href: `${baseUrl}/terms` }],
     scripts: [
       {
         type: "application/ld+json",
@@ -30,7 +30,7 @@ export const Route = createFileRoute("/_site/terminos")({
           "@type": "WebPage",
           name: "Terms and Conditions — NEO",
           description: "Terms and Conditions governing the use and provision of services by Nova Enterprice Online.",
-          url: `${baseUrl}/terminos`,
+          url: `${baseUrl}/terms`,
           isPartOf: {
             "@type": "WebSite",
             name: getSiteName(),

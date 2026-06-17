@@ -9,7 +9,7 @@ import { getBaseUrl, GITHUB_URL, EMAIL_ADDRESS } from "@/lib/seo.config";
 
 const baseUrl = getBaseUrl();
 
-export const Route = createFileRoute("/_site/contacto")({
+export const Route = createFileRoute("/_site/contact")({
   head: () => ({
     meta: [
       { title: "Contact — NEO | Nova Enterprice Online" },
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/_site/contacto")({
         property: "og:description",
         content: "Contact us to start your web project. We respond within 24 hours.",
       },
-      { property: "og:url", content: `${baseUrl}/contacto` },
+      { property: "og:url", content: `${baseUrl}/contact` },
       { property: "og:type", content: "website" },
       { property: "og:image", content: `${baseUrl}/neo-logo.png` },
       { name: "twitter:title", content: "Contact — NEO" },
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/_site/contacto")({
       },
       { name: "twitter:image", content: `${baseUrl}/neo-logo.png` },
     ],
-    links: [{ rel: "canonical", href: `${baseUrl}/contacto` }],
+    links: [{ rel: "canonical", href: `${baseUrl}/contact` }],
   }),
   component: Contacto,
 });
