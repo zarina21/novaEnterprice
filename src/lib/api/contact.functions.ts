@@ -7,40 +7,33 @@ const contactSchema = z.object({
   message: z.string().min(10, "El mensaje debe tener al menos 10 caracteres").max(2000),
 });
 
-const EMAILJS_URL = "https://api.emailjs.com/api/v1.0/email/send";
-
-async function sendEmailJS(templateId: string, params: Record<string, unknown>) {
-  const res = await fetch(EMAILJS_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      service_id: process.env.EMAILJS_SERVICE_ID,
-      template_id: templateId,
-      user_id: process.env.EMAILJS_PUBLIC_KEY,
-      template_params: params,
-    }),
-  });
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`EmailJS error (${res.status}): ${text}`);
-  }
-}
+const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 
 export const submitContact = createServerFn({ method: "POST" })
   .validator(contactSchema)
   .handler(async ({ data }) => {
-    await Promise.all([
-      sendEmailJS("template_fm6weeq", {
-        name: data.name,
-        title: data.message,
-        email: data.email,
-        to_email: data.email,
-      }),
-      sendEmailJS("template_zzlfs1b", {
+    const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      throw new Error("WEB3FORMS_ACCESS_KEY is not configured");
+    }
+
+    const res = await fetch(WEB3FORMS_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        access_key: accessKey,
         name: data.name,
         email: data.email,
         message: data.message,
+        subject: `Nuevo mensaje de ${data.name}`,
+        from_name: "Nova Enterprice Online",
       }),
-    ]);
+    });
+
+    const result = await res.json();
+    if (!result.success) {
+      throw new Error(`Web3Forms error: ${JSON.stringify(result)}`);
+    }
+
     return { success: true };
   });

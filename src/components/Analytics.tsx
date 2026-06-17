@@ -16,7 +16,6 @@ export function Analytics() {
             `gtag('config', '${gaId}', {`,
             `  send_page_view: true,`,
             `  cookie_flags: 'samesite=none;secure',`,
-            `  cookie_domain: '${typeof location !== "undefined" ? location.hostname : ""}',`,
             `});`,
           ].join("\n"),
         }}

@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { submitContact } from "@/lib/api/contact.functions";
 import { useState } from "react";
 import { Toaster, toast } from "sonner";
 import { Github } from "lucide-react";
@@ -59,7 +58,20 @@ function Contacto() {
 
   const onSubmit = async (data: FormData) => {
     try {
-      await submitContact({ data });
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          name: data.name,
+          email: data.email,
+          message: data.message,
+          subject: `Nuevo mensaje de ${data.name}`,
+          from_name: "Nova Enterprice Online",
+        }),
+      });
+      const result = await res.json();
+      if (!result.success) throw new Error("Web3Forms error");
       setSent(true);
     } catch (e) {
       console.error("Error sending message:", e);
