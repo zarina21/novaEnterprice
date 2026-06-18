@@ -117,7 +117,18 @@ function Proyectos() {
               target={p.url?.startsWith("http") ? "_blank" : undefined}
               rel={p.url?.startsWith("http") ? "noopener noreferrer" : undefined}
             >
-              {p.img ? (
+              {p.url ? (
+                <div className="mb-4 aspect-[16/10] overflow-hidden rounded-xl border border-border/50">
+                  <iframe
+                    src={p.url.startsWith("http") ? p.url : `${baseUrl}${p.url}`}
+                    title={`Preview of ${p.title}`}
+                    className="h-full w-full"
+                    loading="lazy"
+                    sandbox="allow-scripts allow-same-origin"
+                    style={{ transform: "scale(0.5)", transformOrigin: "0 0", width: "200%", height: "200%" }}
+                  />
+                </div>
+              ) : p.img ? (
                 <div className="mb-4 aspect-[16/10] overflow-hidden rounded-xl">
                   <img
                     src={p.img}
@@ -131,7 +142,7 @@ function Proyectos() {
                   className="mb-4 aspect-[16/10] rounded-xl opacity-80 transition-opacity group-hover:opacity-100"
                   style={{ background: p.bg }}
                   role="img"
-                  aria-label={`Illustration of ${p.title}`}
+                  aria-label={`Ilustración de ${p.title}`}
                 />
               )}
             </a>

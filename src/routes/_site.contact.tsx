@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Toaster, toast } from "sonner";
 import { Github } from "lucide-react";
 import { getBaseUrl, GITHUB_URL, EMAIL_ADDRESS } from "@/lib/seo.config";
+import zariPhone from "@/assets/zariPhone.png";
 
 const baseUrl = getBaseUrl();
 
@@ -109,6 +110,7 @@ function Contacto() {
             </a>
           </li>
         </ul>
+        <img src={zariPhone} alt="ZariPhone" className="mt-8 h-48 w-auto object-contain" />
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}

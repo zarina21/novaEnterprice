@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { getBaseUrl, getSiteName } from "@/lib/seo.config";
+import zariAsomada from "@/assets/zariAsomada.png";
 
 const baseUrl = getBaseUrl();
 
@@ -125,17 +126,24 @@ function Terminos() {
         Last Updated:{" "}
         {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
       </p>
-      <div className="mt-12 space-y-8">
-        {sections.map((s) => (
-          <div key={s.t}>
-            <h2 className="text-xl font-semibold">{s.t}</h2>
-            {s.d.split("\n").map((line, i) => (
-              <p key={i} className="mt-2 text-muted-foreground leading-relaxed">
-                {line || "\u00A0"}
-              </p>
-            ))}
-          </div>
-        ))}
+      <div className="relative mt-12 rounded-2xl border border-border/70 bg-card/40 p-8 backdrop-blur">
+        <img
+          src={zariAsomada}
+          alt="Zarina asomada"
+          className="absolute top-8 left-0 h-28 w-auto -translate-x-[65%] object-contain"
+        />
+        <div className="space-y-8 pt-4">
+          {sections.map((s) => (
+            <div key={s.t}>
+              <h2 className="text-xl font-semibold">{s.t}</h2>
+              {s.d.split("\n").map((line, i) => (
+                <p key={i} className="mt-2 text-muted-foreground leading-relaxed">
+                  {line || "\u00A0"}
+                </p>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

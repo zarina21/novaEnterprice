@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { getBaseUrl, getSiteName, getDefaultDescription, EMAIL_ADDRESS } from "../lib/seo.config";
 import { Analytics } from "../components/Analytics";
+import zariError404 from "../assets/zariError404.png";
 
 function SkipLink() {
   return (
@@ -29,7 +30,8 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
+        <img src={zariError404} alt="Zari error 404" className="mx-auto h-48 w-auto object-contain" />
+        <h1 className="mt-4 text-7xl font-bold text-foreground">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
         <p className="mt-2 text-sm text-muted-foreground">
           The page you are looking for does not exist or has been moved.
