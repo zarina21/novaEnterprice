@@ -77,7 +77,7 @@ const projects = [
     title: "Nova Enterprice",
     desc: "Our own corporate site. The one you're looking at.",
     tag: "TanStack",
-    url: "/",
+    url: "https://novaenterprice.online",
     bg: "linear-gradient(135deg, #1e1b4b, #312e81)",
     specs: [
       "Framework: TanStack Start + React 19 + Vite",
