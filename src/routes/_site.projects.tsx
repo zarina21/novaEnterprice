@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { getBaseUrl, getSiteName } from "@/lib/seo.config";
+import neoLogo from "@/assets/neo-logo.png";
 
 const baseUrl = getBaseUrl();
 
@@ -77,7 +78,7 @@ const projects = [
     title: "Nova Enterprice",
     desc: "Our own corporate site. The one you're looking at.",
     tag: "TanStack",
-    img: "/neo-logo.png",
+    img: neoLogo,
     bg: "linear-gradient(135deg, #1e1b4b, #312e81)",
     specs: [
       "Framework: TanStack Start + React 19 + Vite",
