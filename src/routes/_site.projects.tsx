@@ -129,11 +129,11 @@ function Proyectos() {
                   />
                 </div>
               ) : p.img ? (
-                <div className="mb-4 aspect-[16/10] overflow-hidden rounded-xl">
+                <div className="mb-4 aspect-[16/10] overflow-hidden rounded-xl flex items-center justify-center bg-card/80">
                   <img
                     src={p.img}
                     alt={`Screenshot of ${p.title}`}
-                    className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                    className="h-16 w-16 object-contain opacity-70"
                     loading="lazy"
                   />
                 </div>
