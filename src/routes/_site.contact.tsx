@@ -4,8 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
 import { Toaster, toast } from "sonner";
-import { Github } from "lucide-react";
-import { getBaseUrl, GITHUB_URL, EMAIL_ADDRESS } from "@/lib/seo.config";
+
+import { getBaseUrl, EMAIL_ADDRESS } from "@/lib/seo.config";
 import zariPhone from "@/assets/zariPhone.png";
 
 const baseUrl = getBaseUrl();
@@ -97,18 +97,7 @@ function Contacto() {
           <li>
             <span className="text-muted-foreground">Web:</span> novaenterprice.online
           </li>
-          <li>
-            <span className="text-muted-foreground">GitHub:</span>{" "}
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-foreground hover:text-primary transition-colors"
-            >
-              <Github className="h-4 w-4" aria-hidden="true" />
-              zarina21
-            </a>
-          </li>
+
         </ul>
         <img src={zariPhone} alt="ZariPhone" className="mt-8 h-48 w-auto object-contain" />
       </div>
